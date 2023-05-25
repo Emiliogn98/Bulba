@@ -36,7 +36,7 @@ class Player: SKSpriteNode {
 extension Player {
     
     func setupPlayer(_ ground: Ground, scene: SKScene) {
-        position = CGPoint(x: scene.frame.width/2.0 - 100.0, y: (scene.frame.height + ground.frame.height + frame.height)/2.0)
+        position = CGPoint(x: scene.frame.width/3.0 - 100.0, y: (scene.frame.height + ground.frame.height + frame.height)/4) // 4
         scene.addChild(self)
         setupAnim()
     }
@@ -45,7 +45,7 @@ extension Player {
         var textures: [SKTexture] = []
         
         for i in 1...2 {
-            textures.append(SKTexture(imageNamed: "player\(i)"))
+            textures.append(SKTexture(imageNamed: "player"))
         }
         
         run(.repeatForever(.animate(with: textures, timePerFrame: 0.10)))
@@ -56,10 +56,10 @@ extension Player {
         let scale: CGFloat
         
         if isMoveDown {
-            scale = -0.75
+            scale = -0.75//-0.75
             
         } else {
-            scale = 0.75
+            scale = 0.75//0.75
         }
         
         let flipY = SKAction.scaleY(to: scale, duration: 0.1)

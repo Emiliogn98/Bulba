@@ -14,7 +14,7 @@ class Ground: SKSpriteNode {
         super.init(texture: texture, color: .clear, size: texture.size())
         name = "Ground"
         zPosition = -1.0
-        anchorPoint = CGPoint(x: 0.0, y: 0.5)
+        anchorPoint = CGPoint(x: 0.0, y: 2.2)
     }
     
     required init?(coder aDecoder: NSCoder) {

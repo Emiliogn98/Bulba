@@ -50,7 +50,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         backgroundColor = UIColor(hex: 0xB3E5FC)
         if gameState == .initial {
-         //   setupNodes()
+           setupNodes()
             setupPhysics()
             gameState = .start
         }
@@ -86,7 +86,7 @@ class GameScene: SKScene {
         
         groundNode.moveGround(self)
         moveWall()
-        cloud.moveCloud(self)
+     //   cloud.moveCloud(self)
     }
 }
 
@@ -97,7 +97,7 @@ extension GameScene {
     func setupNodes() {
         groundNode.setupGround(self)
         playerNode.setupPlayer(groundNode, scene: self)
-        cloud.setupClouds()
+       // cloud.setupClouds()
         setupHUD()
     }
     
@@ -112,8 +112,8 @@ extension GameScene {
             }])))
         wallTimer = Timer.scheduledTimer(timeInterval: TimeInterval(wallRandom), target: self, selector: #selector(spawnWalls), userInfo: nil, repeats: true)
 
-        let cloudRandom = CGFloat.random(min: 5.5, max: 10.5)
-        cloudTimer = Timer.scheduledTimer(timeInterval: TimeInterval(cloudRandom), target: self, selector: #selector(spawnClouds), userInfo: nil, repeats: true)
+//      let cloudRandom = CGFloat.random(min: 5.5, max: 10.5)
+//        cloudTimer = Timer.scheduledTimer(timeInterval: TimeInterval(cloudRandom), target: self, selector: #selector(spawnClouds), userInfo: nil, repeats: true)
     }
     
     @objc func spawnWalls() {
@@ -126,11 +126,11 @@ extension GameScene {
         }
 
         //Wall
-        let wall = SKSpriteNode(imageNamed: "block").copy() as! SKSpriteNode
+        let wall = SKSpriteNode(imageNamed: "cactus").copy() as! SKSpriteNode
         wall.name = "Block"
         wall.zPosition = 2.0
         let value: CGFloat = wall.frame.height + groundNode.frame.height
-        let wallPosY = frame.height/2.0 + (value/2.0 * scale)
+        let wallPosY = frame.height/4.5 + (value/4.5 * scale)
         wall.position = CGPoint(x: size.width + wall.frame.width, y: wallPosY)
         wall.physicsBody = SKPhysicsBody(rectangleOf: wall.size)
         wall.physicsBody!.isDynamic = false
@@ -162,14 +162,14 @@ extension GameScene {
         }
     }
     
-    @objc func spawnClouds() {
-        let index = Int(arc4random_uniform(UInt32(cloud.clouds.count - 1)))
-        let cloud = self.cloud.clouds[index].copy() as! Cloud
-        let randomY = CGFloat.random(min: -cloud.frame.height, max: cloud.frame.height*2.0)
-        cloud.position = CGPoint(x: frame.width + cloud.frame.width, y: randomY)
-        addChild(cloud)
-        cloud.run(.sequence([.wait(forDuration: 15.0), .removeFromParent()]))
-    }
+//    @objc func spawnClouds() {
+//        let index = Int(arc4random_uniform(UInt32(cloud.clouds.count - 1)))
+//        let cloud = self.cloud.clouds[index].copy() as! Cloud
+//        let randomY = CGFloat.random(min: -cloud.frame.height, max: cloud.frame.height*2.0)
+//        cloud.position = CGPoint(x: frame.width + cloud.frame.width, y: randomY)
+//        addChild(cloud)
+//        cloud.run(.sequence([.wait(forDuration: 15.0), .removeFromParent()]))
+//    }
     
     func setupHUD() {
         addChild(hud)
