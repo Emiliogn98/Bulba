@@ -23,6 +23,7 @@
 		E3CC03E72A1ED60700CA9937 /* SKColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CC03E62A1ED60700CA9937 /* SKColor.swift */; };
 		E3CC03E92A1ED66000CA9937 /* CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CC03E82A1ED66000CA9937 /* CGFloat.swift */; };
 		E3CC03EC2A1ED6AA00CA9937 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3CC03EB2A1ED6AA00CA9937 /* Types.swift */; };
+		E3E6AB4A2A217584001813D8 /* CGFloat-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E6AB492A217584001813D8 /* CGFloat-Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		E3CC03E62A1ED60700CA9937 /* SKColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKColor.swift; sourceTree = "<group>"; };
 		E3CC03E82A1ED66000CA9937 /* CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGFloat.swift; sourceTree = "<group>"; };
 		E3CC03EB2A1ED6AA00CA9937 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		E3E6AB492A217584001813D8 /* CGFloat-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat-Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				E3CC03E62A1ED60700CA9937 /* SKColor.swift */,
 				E3CC03E82A1ED66000CA9937 /* CGFloat.swift */,
+				E3E6AB492A217584001813D8 /* CGFloat-Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				E3CC03E22A1ED4F600CA9937 /* ScoreGenerator.swift in Sources */,
 				E3CC03E72A1ED60700CA9937 /* SKColor.swift in Sources */,
 				E3CC03CA2A1ECC0400CA9937 /* GameViewController.swift in Sources */,
+				E3E6AB4A2A217584001813D8 /* CGFloat-Ext.swift in Sources */,
 				E3CC03E02A1ED46D00CA9937 /* HUD.swift in Sources */,
 				E3CC03E42A1ED53B00CA9937 /* Cloud.swift in Sources */,
 				E3CC03C22A1ECC0400CA9937 /* AppDelegate.swift in Sources */,

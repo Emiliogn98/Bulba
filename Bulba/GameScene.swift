@@ -14,14 +14,21 @@ class GameScene: SKScene {
     
     var groundNode = Ground()
     var playerNode = Player()
+    var player = SKSpriteNode?.self
     var cloud = Cloud()
     var hud = HUD()
+    var velocityY: CGFloat = 0.0
+    var gravity: CGFloat = 0.6
+    var playerPosY: CGFloat = 0.0
     
     var moveSpeed: CGFloat = 8.0
     
     var wallTimer: Timer?
     var cloudTimer: Timer?
-    
+    //
+    var cameraMovePointPerSecond: CGFloat = 450.0
+    var lastUpdateTime: TimeInterval = 0.0
+    var dt: TimeInterval = 0.0
     var numScore = 0
     
     var playableRect: CGRect {
@@ -39,12 +46,27 @@ class GameScene: SKScene {
         return CGRect(x: 0.0, y: playableMargin, width: size.width, height: playableHeight)
     }
     
+    
+    
     var gameState: GameState = .initial {
         didSet {
             hud.setupGameState(from: oldValue, to: gameState)
         }
     }
     
+    
+    func moveCamera(){
+    //    let amountToMove = CGPoint(x: cameraMov)
+    }
+    func movePlayer(){
+        let amountToMove = cameraMovePointPerSecond * CGFloat(dt)
+        let rotate = CGFloat(1).degreesToRadians() * amountToMove/2.5
+//        player.zRotation -= rotate
+//        player.position.x += amountToMove
+    }
+    func createPlayer(){
+     //   player = SKSpriteNode(imageNamed: "player")
+    }
     //MARK: - Systems
     
     override func didMove(to view: SKView) {
@@ -76,6 +98,13 @@ class GameScene: SKScene {
         } else {
             playerNode.setupMoveUpDown()
         }
+        
+//        if !isPaused {//saltar
+//            if onGround{
+//                onGround = false
+//                velocity = -25.0
+//            }
+//        }// saltar
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -87,6 +116,7 @@ class GameScene: SKScene {
         groundNode.moveGround(self)
         moveWall()
      //   cloud.moveCloud(self)
+        
     }
 }
 
@@ -119,7 +149,7 @@ extension GameScene {
     @objc func spawnWalls() {
         let scale: CGFloat
         if Int(arc4random_uniform(UInt32(2))) == 0 {
-            scale = -1.0
+            scale = 1.0
 
         } else {
             scale = 1.0

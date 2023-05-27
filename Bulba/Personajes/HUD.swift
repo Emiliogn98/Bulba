@@ -11,8 +11,8 @@ import SpriteKit
 enum HUDSettings {
     static let score = "Score"
     static let highscore = "Highscore"
-    static let tapToStart = "Tap To Start"
-    static let gameOver = "Game Over"
+    static let tapToStart = "Comenzar"
+    static let gameOver = "Juego Terminado"
 }
 
 class HUD: SKNode {
@@ -35,7 +35,7 @@ class HUD: SKNode {
         label.text = text
         label.fontSize = fontSize
         label.position = pos
-        label.zPosition = 50.0
+        label.zPosition = 40.0
         addChild(label)
     }
     
